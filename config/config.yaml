@@ -1,0 +1,27 @@
+dataset:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  extracted_features_dir: "data/extracted_features"
+  image_size: [256, 256]
+  num_classes: 10
+  test_split: 0.25
+
+cnn_params:
+  epochs: 25
+  batch_size: 256
+  learning_rate: 0.001
+  dropout_rate: 0.05
+
+knn_params:
+  n_neighbors: 21
+  metric: "euclidean"
+
+glcm_features:
+  distances: [1]
+  angles: [0, 0.785398, 1.570796, 2.356194] # 0, 45, 90, 135 deg in radians
+  properties: ["contrast", "dissimilarity", "homogeneity", "energy", "correlation", "ASM"]
+
+paths:
+  cnn_model_save: "saved_models/cnn_plant_disease.h5"
+  knn_model_save: "saved_models/knn_plant_disease.joblib"
+  logs: "outputs/logs/pipeline.log"
